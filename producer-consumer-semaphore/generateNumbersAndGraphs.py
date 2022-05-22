@@ -17,20 +17,20 @@ for n in [1,2,4,16,32]:
     
     elapsedTime /= 10
 
-    nData.append([np+nc, elapsedTime])
+    nData.append([np/nc, elapsedTime])
   
   data.append([n, nData]);
 
 plt.figure(1)
 
 for [n,dataSet] in data:
-  df = pd.DataFrame(dataSet, columns=['npxnc', 'elapsedTime'])
+  df = pd.DataFrame(dataSet, columns=['np/nc', 'elapsedTime'])
 
-  plt.plot(df['npxnc'], df['elapsedTime'],  label=n)
+  plt.plot(df['np/nc'], df['elapsedTime'],  label=n)
 
 plt.title('Número de Threads vs Tempo (ms)')
 plt.ylabel('Tempo (ms)')
-plt.xlabel('Threads')
+plt.xlabel('Np/Nc')
 plt.legend()
 plt.savefig('graph.png')
 
