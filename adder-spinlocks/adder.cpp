@@ -53,7 +53,7 @@ void somador(char *parse, int size)
         somaLocal += (int)parse[i];
     }
     spinlock.acquire();
-    result += somaLocal; //somamos a soma parcial ao acumulador global
+    result += somaLocal;
     spinlock.release();
 }
 
