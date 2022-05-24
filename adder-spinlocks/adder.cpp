@@ -16,7 +16,7 @@ private:
 public:
     void acquire()
     {
-        while (lock.test_and_set())
+        while (lock.test_and_set());
     }
     void release()
     {

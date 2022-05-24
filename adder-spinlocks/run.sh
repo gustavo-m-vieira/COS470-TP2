@@ -1,8 +1,8 @@
 #!/bin/bash
 
-g++ -pthread -o somador somador.cpp
+g++ -pthread -o somador adder.cpp
 
-for n in 10000000 100000000 100000000
+for n in 1000000000
 do
     for k in 1 2 4 8 16 32 64 128 256
     do
