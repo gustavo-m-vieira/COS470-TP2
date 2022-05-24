@@ -57,22 +57,22 @@ void somador(char *parse, int size)
     spinlock.release();
 }
 
-void criarThread(int K, char *vetor, int N)           // criação das threads
+void criarThread(int K, char *vetor, int N) 
 {
-    int parse = N / K; //como sugerido no enunciado
+    int parse = N / K; 
     threads = new thread *[K];
-    // cria N threads
-    for (int i = 0; i < K - 1; i++) //o for vai até a penúltima thread, pois a ultima fica com a parcela + o que sobrou
+    
+    for (int i = 0; i < K-1; i++) //o for vai até a penúltima thread, pois a ultima fica com a parcela + o que sobrou
     {
         threads[i] = new thread(somador, &vetor[i * parse], parse); 
     }
     // ultima thread fora do for 
     int resto = parse + N % K;
 
-    threads[K - 1] = new thread(somador, &vetor[parse * (K - 1)], resto);
+    threads[K - 1] = new thread(somador, &vetor[parse * (K-1)], resto);
 }
 
-void alocarThread(int K)                //alocação das threads
+void alocarThread(int K)  
 {
     for (int i = 0; i < K; i++)
     {
@@ -89,7 +89,7 @@ int main(int argc, char *argv[])
     K = atoi(argv[1]);
     N = atoi(argv[2]);
     vetor = new char[N];
-    randArray(vetor, N);        //gera o vetor tamanho N aleatório
+    randArray(vetor, N);
 
     auto inicio = chrono::high_resolution_clock::now(); //inicia contagem
 
